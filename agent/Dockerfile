@@ -6,8 +6,7 @@ USER root
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates curl git gnupg \
     && install -m 0755 -d /etc/apt/keyrings \
     && curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /etc/apt/keyrings/microsoft.gpg \
-    && . /etc/os-release \
-    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ $VERSION_CODENAME main" > /etc/apt/sources.list.d/azure-cli.list \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ bookworm main" > /etc/apt/sources.list.d/azure-cli.list \
     && apt-get update && apt-get install -y --no-install-recommends azure-cli \
     && az extension add --name containerapp \
     && rm -rf /var/lib/apt/lists/*

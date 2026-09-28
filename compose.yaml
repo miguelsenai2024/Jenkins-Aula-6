@@ -3,6 +3,7 @@ services:
     build: .
     environment:
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Execute node scripts/lab.mjs start}
+      GITHUB_SCAN_TOKEN: ${GITHUB_SCAN_TOKEN:-}
     ports:
       - "127.0.0.1:8080:8080"
     volumes:

@@ -27,5 +27,15 @@ jenkins:
 unclassified:
   location:
     url: "http://localhost:8080/"
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              scope: GLOBAL
+              id: github-scan
+              username: x-access-token
+              password: "${GITHUB_SCAN_TOKEN:-unused}"
+              description: Token temporario para indexacao GitHub no laboratorio
 # Cadastre fora do Git: azure-sp (usuario=client ID; senha=client secret),
 # azure-tenant e azure-subscription (Secret text).

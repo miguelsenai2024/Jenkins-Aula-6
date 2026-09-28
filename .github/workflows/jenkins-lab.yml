@@ -14,6 +14,7 @@ jobs:
     timeout-minutes: 45
     permissions:
       contents: write
+      statuses: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -22,6 +23,8 @@ jobs:
       - name: Instalar ferramenta de captura
         run: npm ci
       - name: Iniciar controller e agent separados
+        env:
+          GITHUB_SCAN_TOKEN: ${{ github.token }}
         run: node scripts/lab.mjs start
       - name: Executar dez pipelines e coletar evidencias
         env:

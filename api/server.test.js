@@ -1,4 +1,4 @@
-import { test } from 'node:test';
+import { test, describe } from 'node:test';
 import assert from 'node:assert/strict';
 import { once } from 'node:events';
 import { createServer } from './server.js';
@@ -11,6 +11,7 @@ async function request(path, options) {
     return { status: response.status, type: response.headers.get('content-type'), body: await response.json() };
   } finally { await new Promise(resolve => server.close(resolve)); }
 }
+describe('Carparts API', () => {
 test('health confirma disponibilidade e identifica o artefato', async () => {
   const response = await request('/health');
   assert.equal(response.status, 200); assert.equal(response.body.status, 'ok');
@@ -29,4 +30,5 @@ test('rota inexistente retorna erro 404 em JSON', async () => {
 });
 test('metodo sem suporte nao e aceito como consulta', async () => {
   assert.equal((await request('/pecas', { method: 'POST' })).status, 404);
+});
 });

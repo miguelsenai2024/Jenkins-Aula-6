@@ -1,0 +1,6 @@
+.runtime/
+node_modules/
+api/reports/
+.env
+*.pem
+*.key

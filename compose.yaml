@@ -1,0 +1,44 @@
+services:
+  jenkins:
+    build: .
+    environment:
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Execute node scripts/lab.mjs start}
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - jenkins-home:/var/jenkins_home
+    networks: [jenkins]
+    restart: unless-stopped
+  docker:
+    image: docker:27-dind
+    privileged: true
+    environment:
+      DOCKER_TLS_CERTDIR: /certs
+    volumes:
+      - docker-certs:/certs/client
+      - docker-data:/var/lib/docker
+    networks: [jenkins]
+    restart: unless-stopped
+  agent:
+    profiles: [agent]
+    build: ./agent
+    env_file: .runtime/agent.env
+    environment:
+      JENKINS_URL: http://jenkins:8080/
+      JENKINS_AGENT_NAME: linux-docker
+      JENKINS_WEB_SOCKET: "true"
+      DOCKER_HOST: tcp://docker:2376
+      DOCKER_CERT_PATH: /certs/client
+      DOCKER_TLS_VERIFY: "1"
+    volumes:
+      - agent-work:/home/jenkins/agent
+      - docker-certs:/certs/client:ro
+    networks: [jenkins]
+    restart: unless-stopped
+volumes:
+  jenkins-home:
+  agent-work:
+  docker-certs:
+  docker-data:
+networks:
+  jenkins:

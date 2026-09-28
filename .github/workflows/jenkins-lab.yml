@@ -1,0 +1,50 @@
+name: Laboratorio Jenkins
+on:
+  push:
+    branches: [main]
+    paths: ['Jenkinsfile', 'Dockerfile', 'casc.yaml', 'plugins.txt', 'compose.yaml', 'agent/**', 'api/**', 'scripts/**', '.github/workflows/**', 'package*.json']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  jenkins:
+    name: Jenkins CI
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Instalar ferramenta de captura
+        run: npm ci
+      - name: Iniciar controller e agent separados
+        run: node scripts/lab.mjs start
+      - name: Executar dez pipelines e coletar evidencias
+        env:
+          LAB_BRANCH: ${{ github.event_name == 'pull_request' && format('PR-{0}', github.event.number) || 'main' }}
+        run: |
+          node scripts/lab.mjs collect
+          node scripts/metrics.mjs
+      - name: Capturar Stage View e arquitetura em execucao
+        env:
+          LAB_BRANCH: ${{ github.event_name == 'pull_request' && format('PR-{0}', github.event.number) || 'main' }}
+        run: |
+          npx playwright install chromium --with-deps
+          node scripts/capture.mjs
+      - name: Coletar diagnostico se houver falha
+        if: failure()
+        run: |
+          mkdir -p evidencias/diagnostico
+          docker compose --env-file .runtime/controller.env --profile agent logs --no-color > evidencias/diagnostico/containers.log 2>&1 || true
+      - name: Publicar evidencias reais
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencias-jenkins
+          path: evidencias/
+          retention-days: 30
+      - name: Encerrar laboratorio
+        if: always()
+        run: node scripts/lab.mjs stop

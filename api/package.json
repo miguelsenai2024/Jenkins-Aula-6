@@ -1,0 +1,10 @@
+{
+  "name": "carparts-api", "version": "1.0.0", "private": true, "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "lint": "node --check server.js && node --check server.test.js",
+    "pretest": "node -e \"require('node:fs').mkdirSync('reports',{recursive:true})\"",
+    "test": "node --test --test-reporter=junit --test-reporter-destination=reports/junit.xml server.test.js"
+  },
+  "engines": { "node": ">=22" }
+}

@@ -1,0 +1,27 @@
+# Informe ADMIN_PASSWORD ao iniciar o container; nunca versione a senha.
+jenkins:
+  systemMessage: "Jenkins Carparts - Aula 6 - configurado com JCasC"
+  numExecutors: 0
+  slaveAgentPort: 50000
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "admin"
+          password: "${ADMIN_PASSWORD}"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+
+unclassified:
+  location:
+    url: "http://localhost:8080/"
+
+# Cadastre no Jenkins um agent com rotulos linux e docker, com Java 21,
+# Docker, Git, curl e Azure CLI (incluindo a extensao containerapp).
+# Cadastre as credenciais:
+# azure-sp: usuario = client ID, senha = client secret do service principal.
+# azure-tenant: Secret text com o tenant ID.
+# azure-subscription: Secret text com o subscription ID.
+# O service principal precisa apenas das permissoes de push no ACR
+# e de atualizacao dos Container Apps no grupo de recursos da aplicacao.

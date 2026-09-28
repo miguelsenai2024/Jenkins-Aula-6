@@ -60,7 +60,9 @@ if (command === 'start') {
   console.log(validation.trim());
   if (!validation.includes('successfully validated')) throw new Error('Jenkinsfile rejeitado pelo Jenkins');
   if ((await api('/job/carparts/api/json')).status === 404) {
-    await check(await api('/createItem?name=carparts', { method: 'POST', headers: { 'content-type': 'application/xml' }, body: readFileSync('scripts/multibranch.xml', 'utf8') }), 'Criacao Multibranch');
+    let xml = readFileSync('scripts/multibranch.xml', 'utf8');
+    if (process.env.GITHUB_SCAN_TOKEN) xml = xml.replace('<id>carparts-github</id>', '<id>carparts-github</id><credentialsId>github-scan</credentialsId>');
+    await check(await api('/createItem?name=carparts', { method: 'POST', headers: { 'content-type': 'application/xml' }, body: xml }), 'Criacao Multibranch');
   }
   await check(await api('/job/carparts/build?delay=0sec', { method: 'POST' }), 'Indexacao GitHub');
   console.log('Controller sem executores, agent Linux e Multibranch iniciados. URL: http://localhost:8080/');

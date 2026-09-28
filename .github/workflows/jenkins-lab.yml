@@ -12,6 +12,8 @@ jobs:
     name: Jenkins CI
     runs-on: ubuntu-24.04
     timeout-minutes: 45
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -45,6 +47,15 @@ jobs:
           name: evidencias-jenkins
           path: evidencias/
           retention-days: 30
+      - name: Versionar evidencias verificadas no mesmo repositorio
+        if: success() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add evidencias/jenkins
+          git commit -m 'Registra dez execucoes reais Jenkins, metricas e capturas'
+          git pull --rebase origin main
+          git push origin HEAD:main
       - name: Encerrar laboratorio
         if: always()
         run: node scripts/lab.mjs stop

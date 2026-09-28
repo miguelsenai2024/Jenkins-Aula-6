@@ -7,10 +7,10 @@ Implementacao da atividade SAP1-DEVOPS: controller Jenkins em Docker, configurac
 | Item | Arquivos / evidencias | Situacao |
 |---|---|---|
 | E1 - Arquitetura | [Diagrama](docs/arquitetura.svg), [justificativa](docs/arquitetura.md) | Projeto documentado |
-| E2 - Controller | Dockerfile, plugins.txt, casc.yaml, compose.yaml | Executado pelo workflow; conferir logs e evidencias |
+| E2 - Controller | Dockerfile, plugins.txt, casc.yaml, compose.yaml | Executado e verificado; zero executores e HTTP 403 anonimo |
 | E3 - Pipeline | Jenkinsfile, API, testes JUnit, smoke test da imagem | CI executada; CD depende da Azure |
 | E4 - Azure | [Configuracao](docs/azure.md), pipeline com Azure CLI | Requer conta, recursos e credenciais do responsavel |
-| E5 - Multibranch/webhook | scripts/multibranch.xml, [instrucoes](docs/github.md) | Multibranch reproduzivel; webhook publico e protecao precisam ser configurados |
+| E5 - Multibranch/webhook | scripts/multibranch.xml, [instrucoes](docs/github.md), [PR validada](https://github.com/miguelsenai2024/Jenkins-Aula-6/pull/1) | Branch e PR verificadas; webhook publico e protecao precisam ser configurados |
 | E6 - Metricas/custos | scripts/metrics.mjs, [custos](docs/custos.md), [plano](docs/metricas.md) | Dez execucoes de CI; DORA de producao depende de entregas reais |
 
 **Nao declarar a atividade integralmente concluida antes de executar a parte Azure e juntar suas evidencias.** Um build verde com DEPLOY_AZURE=false comprova CI, nao deploy em homologacao/producao.
@@ -42,6 +42,10 @@ Encerrar sem apagar dados: `node scripts/lab.mjs stop`.
 Siga [docs/azure.md](docs/azure.md), cadastre as credenciais no Jenkins e execute `carparts/main` com `DEPLOY_AZURE=true` e os nomes reais de recursos. Homologacao deve passar no `/health` com o commit e a versao esperados. A producao aguarda aprovacao do usuario `admin` sem reservar executor; depois recebe o **mesmo digest** da imagem. O registro `release.json` inclui commit, imagem, aprovador, horario e lead time.
 
 ## Evidencias
+
+Evidencias reais versionadas: [evidencias/jenkins](evidencias/jenkins), com logs dos dez builds, quatro testes aprovados em cada build, capturas do Stage View, controller/agent e Multibranch, CSV, metricas e prova de autenticacao. A execucao validada e [36462516876](https://github.com/miguelsenai2024/Jenkins-Aula-6/actions/runs/36462516876).
+
+A [PR #1](https://github.com/miguelsenai2024/Jenkins-Aula-6/pull/1) tambem teve dez execucoes aprovadas no item `PR-1`, com [workflow verificado](https://github.com/miguelsenai2024/Jenkins-Aula-6/actions/runs/36462529337). Consulte o [balanco dos entregaveis](docs/entrega.md) para distinguir conclusoes comprovadas e pendencias.
 
 O workflow [Laboratorio Jenkins](https://github.com/miguelsenai2024/Jenkins-Aula-6/actions) roda Jenkins de verdade dentro do runner e publica o artefato `evidencias-jenkins`. GitHub Actions fornece o host; o trabalho de build e teste e executado pelo Jenkins em seu agent. Logs, capturas e resultados sao gerados a partir das execucoes, sem simulacao de deploy Azure.
 

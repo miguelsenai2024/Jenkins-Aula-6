@@ -4,6 +4,8 @@ O bootstrap cria `carparts` a partir de `scripts/multibranch.xml`. A origem GitH
 
 O workflow `Laboratorio Jenkins` executa o Jenkins em Ubuntu 24.04 em pushes na main e em pull requests. O check se chama **Jenkins CI**. Um check verde indica que os testes e a imagem passaram pelo Jenkins; nao indica um deploy Azure quando DEPLOY_AZURE=false.
 
+A PR #1 foi validada e integrada: o Jenkins descobriu o item PR-1 e concluiu dez builds. No Actions, a indexacao usa o token temporario github.token, guardado em credencial do Jenkins, para evitar o limite de API anonima. Na execucao local sem token, o acesso publico ainda pode sofrer esse limite. O historico e as evidencias estao em entrega.md.
+
 ## Webhook persistente
 
 O Jenkins do runner existe apenas enquanto o workflow roda e nao tem URL publica. Para o webhook pedido pelo enunciado, inicie o laboratorio em um host local permanente. Configure proxy HTTPS ou tunel aprovado, mantenha autenticacao e exponha somente o caminho necessario. Nao publique 8080 ou 50000 para qualquer origem.

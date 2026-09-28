@@ -1,0 +1,145 @@
+{
+  "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+  "actions": [
+    {
+      "_class": "hudson.model.ParametersAction",
+      "parameters": [
+        {
+          "_class": "hudson.model.BooleanParameterValue",
+          "name": "DEPLOY_AZURE",
+          "value": false
+        },
+        {
+          "_class": "hudson.model.StringParameterValue",
+          "name": "ACR_NAME",
+          "value": "carpartsacr"
+        },
+        {
+          "_class": "hudson.model.StringParameterValue",
+          "name": "RESOURCE_GROUP",
+          "value": "rg-carparts"
+        },
+        {
+          "_class": "hudson.model.StringParameterValue",
+          "name": "HML_APP",
+          "value": "carparts-api-hml"
+        },
+        {
+          "_class": "hudson.model.StringParameterValue",
+          "name": "PROD_APP",
+          "value": "carparts-api-prod"
+        }
+      ]
+    },
+    {
+      "_class": "hudson.model.CauseAction",
+      "causes": [
+        {
+          "_class": "hudson.model.Cause$UserIdCause",
+          "shortDescription": "Started by user admin",
+          "userId": "admin",
+          "userName": "admin"
+        }
+      ]
+    },
+    {
+      "_class": "jenkins.scm.api.SCMRevisionAction"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.workflow.libs.LibrariesAction"
+    },
+    {},
+    {},
+    {
+      "_class": "hudson.plugins.git.util.BuildData",
+      "buildsByBranchName": {
+        "main": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 11,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "c6fc646d92df81f8a167586cdc4963b1c9ec2966",
+            "branch": [
+              {
+                "SHA1": "c6fc646d92df81f8a167586cdc4963b1c9ec2966",
+                "name": "main"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "c6fc646d92df81f8a167586cdc4963b1c9ec2966",
+            "branch": [
+              {
+                "SHA1": "c6fc646d92df81f8a167586cdc4963b1c9ec2966",
+                "name": "main"
+              }
+            ]
+          }
+        }
+      },
+      "lastBuiltRevision": {
+        "SHA1": "c6fc646d92df81f8a167586cdc4963b1c9ec2966",
+        "branch": [
+          {
+            "SHA1": "c6fc646d92df81f8a167586cdc4963b1c9ec2966",
+            "name": "main"
+          }
+        ]
+      },
+      "remoteUrls": [
+        "https://github.com/miguelsenai2024/Jenkins-Aula-6.git"
+      ],
+      "scmName": ""
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.cps.EnvActionImpl"
+    },
+    {
+      "_class": "hudson.tasks.junit.TestResultAction",
+      "failCount": 0,
+      "skipCount": 0,
+      "totalCount": 4,
+      "urlName": "testReport"
+    },
+    {},
+    {},
+    {},
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.displayurlapi.actions.RunDisplayAction"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.pipeline.modeldefinition.actions.RestartDeclarativePipelineAction"
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction"
+    },
+    {},
+    {}
+  ],
+  "artifacts": [],
+  "building": false,
+  "description": null,
+  "displayName": "#11",
+  "duration": 14695,
+  "estimatedDuration": 16697,
+  "executor": null,
+  "fullDisplayName": "carparts » main #11",
+  "id": "11",
+  "keepLog": false,
+  "number": 11,
+  "queueId": 25,
+  "result": "SUCCESS",
+  "timestamp": 1790619019689,
+  "url": "http://localhost:8080/job/carparts/job/main/11/",
+  "changeSets": [],
+  "culprits": [],
+  "inProgress": false,
+  "nextBuild": null,
+  "previousBuild": {
+    "number": 10,
+    "url": "http://localhost:8080/job/carparts/job/main/10/"
+  }
+}

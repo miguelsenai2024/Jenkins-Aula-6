@@ -1,0 +1,129 @@
+{
+  "_links": {
+    "self": {
+      "href": "/job/carparts/job/main/6/wfapi/describe"
+    }
+  },
+  "id": "6",
+  "name": "#6",
+  "status": "SUCCESS",
+  "startTimeMillis": 1790618889681,
+  "endTimeMillis": 1790618904350,
+  "durationMillis": 14669,
+  "queueDurationMillis": 3,
+  "pauseDurationMillis": 0,
+  "stages": [
+    {
+      "_links": {
+        "self": {
+          "href": "/job/carparts/job/main/6/execution/node/10/wfapi/describe"
+        }
+      },
+      "id": "10",
+      "name": "CI",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1790618891443,
+      "durationMillis": 1258,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/carparts/job/main/6/execution/node/19/wfapi/describe"
+        }
+      },
+      "id": "19",
+      "name": "Qualidade",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1790618892701,
+      "durationMillis": 1797,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/carparts/job/main/6/execution/node/37/wfapi/describe"
+        }
+      },
+      "id": "37",
+      "name": "Build da imagem",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1790618894507,
+      "durationMillis": 8007,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/carparts/job/main/6/execution/node/43/wfapi/describe"
+        }
+      },
+      "id": "43",
+      "name": "Publicacao no ACR",
+      "execNode": "",
+      "status": "NOT_EXECUTED",
+      "startTimeMillis": 1790618902673,
+      "durationMillis": 314,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/carparts/job/main/6/execution/node/56/wfapi/describe"
+        }
+      },
+      "id": "56",
+      "name": "Deploy homologacao",
+      "execNode": "",
+      "status": "NOT_EXECUTED",
+      "startTimeMillis": 1790618903503,
+      "durationMillis": 252,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/carparts/job/main/6/execution/node/65/wfapi/describe"
+        }
+      },
+      "id": "65",
+      "name": "Aprovacao",
+      "execNode": "",
+      "status": "NOT_EXECUTED",
+      "startTimeMillis": 1790618903764,
+      "durationMillis": 53,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/carparts/job/main/6/execution/node/70/wfapi/describe"
+        }
+      },
+      "id": "70",
+      "name": "Deploy producao",
+      "execNode": "",
+      "status": "NOT_EXECUTED",
+      "startTimeMillis": 1790618903842,
+      "durationMillis": 276,
+      "pauseDurationMillis": 0
+    },
+    {
+      "_links": {
+        "self": {
+          "href": "/job/carparts/job/main/6/execution/node/79/wfapi/describe"
+        }
+      },
+      "id": "79",
+      "name": "Declarative: Post Actions",
+      "execNode": "",
+      "status": "SUCCESS",
+      "startTimeMillis": 1790618904128,
+      "durationMillis": 144,
+      "pauseDurationMillis": 0
+    }
+  ]
+}

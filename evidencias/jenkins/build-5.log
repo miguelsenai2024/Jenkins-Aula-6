@@ -1,0 +1,205 @@
+Started by user admin
+Connecting to https://api.github.com using x-access-token/****** (Token temporario para indexacao GitHub no laboratorio)
+Obtained Jenkinsfile from c6fc646d92df81f8a167586cdc4963b1c9ec2966
+[Pipeline] Start of Pipeline
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timeout
+Timeout set to expire in 2 days 0 hr
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (CI)
+[Pipeline] timeout
+[2026-09-28T18:07:41.220Z] Timeout set to expire in 20 min
+[Pipeline] {
+[Pipeline] node
+[2026-09-28T18:07:41.244Z] Running on linux-docker in /home/jenkins/agent/workspace/carparts_main
+[Pipeline] {
+[Pipeline] checkout
+[2026-09-28T18:07:41.278Z] The recommended git tool is: NONE
+[2026-09-28T18:07:41.282Z] using credential github-scan
+[2026-09-28T18:07:41.289Z] Fetching changes from the remote Git repository
+[2026-09-28T18:07:41.294Z] Fetching without tags
+[2026-09-28T18:07:41.544Z] Checking out Revision c6fc646d92df81f8a167586cdc4963b1c9ec2966 (main)
+[2026-09-28T18:07:41.553Z] Commit message: "Autentica indexacao Multibranch com token efemero do GitHub Actions"
+[2026-09-28T18:07:41.286Z]  > git rev-parse --resolve-git-dir /home/jenkins/agent/workspace/carparts_main/.git # timeout=10
+[2026-09-28T18:07:41.291Z]  > git config remote.origin.url https://github.com/miguelsenai2024/Jenkins-Aula-6.git # timeout=10
+[2026-09-28T18:07:41.294Z] Fetching upstream changes from https://github.com/miguelsenai2024/Jenkins-Aula-6.git
+[2026-09-28T18:07:41.294Z]  > git --version # timeout=10
+[2026-09-28T18:07:41.296Z]  > git --version # 'git version 2.47.3'
+[2026-09-28T18:07:41.296Z] using GIT_ASKPASS to set credentials Token temporario para indexacao GitHub no laboratorio
+[2026-09-28T18:07:41.298Z]  > git fetch --no-tags --force --progress -- https://github.com/miguelsenai2024/Jenkins-Aula-6.git +refs/heads/main:refs/remotes/origin/main # timeout=10
+[2026-09-28T18:07:41.546Z]  > git config core.sparsecheckout # timeout=10
+[2026-09-28T18:07:41.548Z]  > git checkout -f c6fc646d92df81f8a167586cdc4963b1c9ec2966 # timeout=10
+[2026-09-28T18:07:41.554Z]  > git rev-list --no-walk c6fc646d92df81f8a167586cdc4963b1c9ec2966 # timeout=10
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Qualidade)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] sh
+[2026-09-28T18:07:43.457Z] + git rev-parse HEAD
+[Pipeline] sh
+[2026-09-28T18:07:43.732Z] + git show -s --format=%ct HEAD
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] dir
+[2026-09-28T18:07:44.242Z] Running in /home/jenkins/agent/workspace/carparts_main/api
+[Pipeline] {
+[Pipeline] sh
+[2026-09-28T18:07:44.585Z] + npm ci
+[2026-09-28T18:07:44.585Z] 
+[2026-09-28T18:07:44.585Z] up to date, audited 1 package in 128ms
+[2026-09-28T18:07:44.585Z] 
+[2026-09-28T18:07:44.585Z] found 0 vulnerabilities
+[Pipeline] sh
+[2026-09-28T18:07:45.020Z] + npm run lint
+[2026-09-28T18:07:45.020Z] 
+[2026-09-28T18:07:45.020Z] > carparts-api@1.0.0 lint
+[2026-09-28T18:07:45.020Z] > node --check server.js && node --check server.test.js
+[2026-09-28T18:07:45.020Z] 
+[Pipeline] sh
+[2026-09-28T18:07:45.430Z] + npm test
+[2026-09-28T18:07:45.430Z] 
+[2026-09-28T18:07:45.430Z] > carparts-api@1.0.0 pretest
+[2026-09-28T18:07:45.430Z] > node -e "require('node:fs').mkdirSync('reports',{recursive:true})"
+[2026-09-28T18:07:45.430Z] 
+[2026-09-28T18:07:45.430Z] 
+[2026-09-28T18:07:45.430Z] > carparts-api@1.0.0 test
+[2026-09-28T18:07:45.430Z] > node --test --test-reporter=junit --test-reporter-destination=reports/junit.xml server.test.js
+[2026-09-28T18:07:45.430Z] 
+[Pipeline] }
+[Pipeline] // dir
+Post stage
+[Pipeline] junit
+[2026-09-28T18:07:45.840Z] Recording test results
+[2026-09-28T18:07:45.849Z] [Checks API] No suitable checks publisher found.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build da imagem)
+[Pipeline] sh
+[2026-09-28T18:07:46.264Z] + docker build --build-arg BUILD_COMMIT=c6fc646d92df81f8a167586cdc4963b1c9ec2966 --build-arg APP_VERSION=5-c6fc646d92df -t carpartsacr.azurecr.io/carparts-api:5-c6fc646d92df api
+[2026-09-28T18:07:46.264Z] DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+[2026-09-28T18:07:46.264Z]             Install the buildx component to build images with BuildKit:
+[2026-09-28T18:07:46.264Z]             https://docs.docker.com/go/buildx/
+[2026-09-28T18:07:46.264Z] 
+[2026-09-28T18:07:46.264Z] Sending build context to Docker daemon  7.168kB[2026-09-28T18:07:46.264Z] 
+[2026-09-28T18:07:46.264Z] Step 1/10 : FROM node:22-alpine
+[2026-09-28T18:07:46.264Z]  ---> 7c3b093add7c
+[2026-09-28T18:07:46.264Z] Step 2/10 : ARG BUILD_COMMIT=local
+[2026-09-28T18:07:46.264Z]  ---> Using cache
+[2026-09-28T18:07:46.264Z]  ---> 67cb02d9d96e
+[2026-09-28T18:07:46.264Z] Step 3/10 : ARG APP_VERSION=dev
+[2026-09-28T18:07:46.264Z]  ---> Using cache
+[2026-09-28T18:07:46.264Z]  ---> 0222c69eddc2
+[2026-09-28T18:07:46.264Z] Step 4/10 : ENV NODE_ENV=production PORT=3000 BUILD_COMMIT=$BUILD_COMMIT APP_VERSION=$APP_VERSION
+[2026-09-28T18:07:46.264Z]  ---> Running in 6c89132b1459
+[2026-09-28T18:07:47.185Z]  ---> Removed intermediate container 6c89132b1459
+[2026-09-28T18:07:47.185Z]  ---> fabbaba54b4c
+[2026-09-28T18:07:47.185Z] Step 5/10 : LABEL org.opencontainers.image.revision=$BUILD_COMMIT
+[2026-09-28T18:07:47.185Z]  ---> Running in 45cebf0ed810
+[2026-09-28T18:07:48.108Z]  ---> Removed intermediate container 45cebf0ed810
+[2026-09-28T18:07:48.108Z]  ---> 2f33e57ae415
+[2026-09-28T18:07:48.108Z] Step 6/10 : WORKDIR /app
+[2026-09-28T18:07:48.108Z]  ---> Running in 4b9ab24e60b3
+[2026-09-28T18:07:49.030Z]  ---> Removed intermediate container 4b9ab24e60b3
+[2026-09-28T18:07:49.030Z]  ---> 2d846555dcef
+[2026-09-28T18:07:49.030Z] Step 7/10 : COPY --chown=node:node package.json server.js ./
+[2026-09-28T18:07:50.390Z]  ---> 391568599531
+[2026-09-28T18:07:50.390Z] Step 8/10 : USER node
+[2026-09-28T18:07:50.390Z]  ---> Running in 37fc5e943b5b
+[2026-09-28T18:07:51.312Z]  ---> Removed intermediate container 37fc5e943b5b
+[2026-09-28T18:07:51.312Z]  ---> 3221a2b167a9
+[2026-09-28T18:07:51.312Z] Step 9/10 : EXPOSE 3000
+[2026-09-28T18:07:51.312Z]  ---> Running in 8d21ccfae8e1
+[2026-09-28T18:07:52.235Z]  ---> Removed intermediate container 8d21ccfae8e1
+[2026-09-28T18:07:52.235Z]  ---> 64d5e305cbd3
+[2026-09-28T18:07:52.235Z] Step 10/10 : CMD ["node", "server.js"]
+[2026-09-28T18:07:52.235Z]  ---> Running in cc31855c555f
+[2026-09-28T18:07:53.157Z]  ---> Removed intermediate container cc31855c555f
+[2026-09-28T18:07:53.157Z]  ---> dd51ae8c7f39
+[2026-09-28T18:07:53.157Z] Successfully built dd51ae8c7f39
+[2026-09-28T18:07:53.157Z] Successfully tagged carpartsacr.azurecr.io/carparts-api:5-c6fc646d92df
+[Pipeline] sh
+[2026-09-28T18:07:53.428Z] + set -eu
+[2026-09-28T18:07:53.428Z] + date +%s
+[2026-09-28T18:07:53.428Z] + CONTAINER=smoke-5-1790618873
+[2026-09-28T18:07:53.428Z] + trap docker rm -f "$CONTAINER" >/dev/null 2>&1 || true EXIT
+[2026-09-28T18:07:53.428Z] + docker run -d --name smoke-5-1790618873 carpartsacr.azurecr.io/carparts-api:5-c6fc646d92df
+[2026-09-28T18:07:53.428Z] 63d677b57bef488b6b556b16e35cdc15f5c83d593409c0ad4cf8c3ee2d557e44
+[2026-09-28T18:07:53.987Z] + docker exec smoke-5-1790618873 node --input-type=module -e 
+[2026-09-28T18:07:53.987Z]                                 for(let attempt=0;attempt<30;attempt++) {
+[2026-09-28T18:07:53.987Z]                                     try {
+[2026-09-28T18:07:53.987Z]                                         const r=await fetch("http://localhost:3000/health");
+[2026-09-28T18:07:53.987Z]                                         const body=await r.json();
+[2026-09-28T18:07:53.987Z]                                         if(!r.ok || body.commit!==process.env.BUILD_COMMIT) throw Error("Artefato inesperado");
+[2026-09-28T18:07:53.987Z]                                         console.log(JSON.stringify(body)); process.exit(0);
+[2026-09-28T18:07:53.987Z]                                     } catch(e) { if(attempt===29) throw e; await new Promise(r=>setTimeout(r,1000)); }
+[2026-09-28T18:07:53.987Z]                                 }
+[2026-09-28T18:07:53.987Z] {"status":"ok","app":"carparts-api","version":"5-c6fc646d92df","commit":"c6fc646d92df81f8a167586cdc4963b1c9ec2966"}
+[2026-09-28T18:07:53.987Z] + docker rm -f smoke-5-1790618873
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Publicacao no ACR)
+Stage "Publicacao no ACR" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy homologacao)
+[Pipeline] timeout
+[2026-09-28T18:07:55.224Z] Timeout set to expire in 15 min
+[Pipeline] {
+[Pipeline] }
+[Pipeline] // timeout
+Stage "Deploy homologacao" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Aprovacao)
+Stage "Aprovacao" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy producao)
+[Pipeline] timeout
+[2026-09-28T18:07:56.350Z] Timeout set to expire in 15 min
+[Pipeline] {
+[Pipeline] }
+[Pipeline] // timeout
+Stage "Deploy producao" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+[2026-09-28T18:07:56.448Z] Concluido: carparts/main #5; deploy Azure habilitado=false
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] End of Pipeline
+
+GitHub has been notified of this commit’s build result
+
+Finished: SUCCESS

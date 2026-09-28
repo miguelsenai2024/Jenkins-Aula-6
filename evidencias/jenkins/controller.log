@@ -1,0 +1,31 @@
+jenkins-1  | Running from: /usr/share/jenkins/jenkins.war
+jenkins-1  | webroot: /var/jenkins_home/war
+jenkins-1  | 2026-09-28 18:04:28.482+0000 [id=1]	INFO	winstone.Logger#logInternal: Beginning extraction from war file
+jenkins-1  | 2026-09-28 18:04:28.885+0000 [id=1]	WARNING	o.e.j.ee9.nested.ContextHandler#setContextPath: Empty contextPath
+jenkins-1  | 2026-09-28 18:04:28.926+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: jetty-12.1.12; built: 2026-08-03T22:37:55.389Z; git: 10dd3948f37767b84cc2c62358364f042e51dbbe; jvm 21.0.12.1+1-LTS
+jenkins-1  | 2026-09-28 18:04:29.227+0000 [id=1]	INFO	o.e.j.e.w.StandardDescriptorProcessor#visitServlet: NO JSP Support for /, did not find org.eclipse.jetty.ee9.jsp.JettyJspServlet
+jenkins-1  | 2026-09-28 18:04:29.259+0000 [id=1]	INFO	o.e.j.s.DefaultSessionIdManager#doStart: Session workerName=node0
+jenkins-1  | 2026-09-28 18:04:29.501+0000 [id=1]	INFO	hudson.WebAppMain#contextInitialized: Jenkins home directory: /var/jenkins_home found at: EnvVars.masterEnvVars.get("JENKINS_HOME")
+jenkins-1  | 2026-09-28 18:04:29.617+0000 [id=1]	INFO	o.e.j.s.handler.ContextHandler#doStart: Started oeje9n.ContextHandler$CoreContextHandler@692e028d{Jenkins v2.568.3,/,b=file:///var/jenkins_home/war/,a=AVAILABLE,h=oeje9n.ContextHandler$CoreContextHandler$CoreToNestedHandler@6629ad09{STARTED}}
+jenkins-1  | 2026-09-28 18:04:29.626+0000 [id=1]	INFO	o.e.j.server.AbstractConnector#doStart: Started oejs.ServerConnector@45dab8e1{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+jenkins-1  | 2026-09-28 18:04:29.627+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: Started oejs.Server@760245e1{STARTING}[12.1.12,sto=0] @702ms
+jenkins-1  | 2026-09-28 18:04:29.629+0000 [id=34]	INFO	winstone.Logger#logInternal: Winstone Servlet Engine running: controlPort=disabled
+jenkins-1  | 2026-09-28 18:04:29.968+0000 [id=33]	INFO	jenkins.model.Jenkins#<init>: Starting version 2.568.3
+jenkins-1  | 2026-09-28 18:04:30.506+0000 [id=42]	INFO	jenkins.InitReactorRunner$1#onAttained: Started initialization
+jenkins-1  | 2026-09-28 18:04:31.904+0000 [id=44]	INFO	jenkins.InitReactorRunner$1#onAttained: Listed all plugins
+jenkins-1  | 2026-09-28 18:04:33.652+0000 [id=43]	INFO	jenkins.InitReactorRunner$1#onAttained: Prepared all plugins
+jenkins-1  | 2026-09-28 18:04:33.686+0000 [id=46]	INFO	jenkins.InitReactorRunner$1#onAttained: Started all plugins
+jenkins-1  | 2026-09-28 18:04:33.691+0000 [id=46]	INFO	jenkins.InitReactorRunner$1#onAttained: Augmented all extensions
+jenkins-1  | 2026-09-28 18:04:34.357+0000 [id=47]	INFO	jenkins.InitReactorRunner$1#onAttained: System config loaded
+jenkins-1  | 2026-09-28 18:04:35.476+0000 [id=47]	INFO	jenkins.InitReactorRunner$1#onAttained: System config adapted
+jenkins-1  | 2026-09-28 18:04:35.476+0000 [id=47]	INFO	jenkins.InitReactorRunner$1#onAttained: Loaded all jobs
+jenkins-1  | 2026-09-28 18:04:35.478+0000 [id=47]	INFO	jenkins.InitReactorRunner$1#onAttained: Configuration for all jobs updated
+jenkins-1  | 2026-09-28 18:04:35.510+0000 [id=69]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+jenkins-1  | 2026-09-28 18:04:35.536+0000 [id=43]	WARNING	hudson.model.User$AllUsers#scanAll: entry for admin in /var/jenkins_home/users/admin_285760426bcee4b3d6b3b1b5f31b6a3a33f996748f96ce4dcd16fa29ca9712ae duplicates one seen earlier for admin
+jenkins-1  | 2026-09-28 18:04:35.565+0000 [id=47]	INFO	jenkins.InitReactorRunner$1#onAttained: Completed initialization
+jenkins-1  | 2026-09-28 18:04:35.629+0000 [id=33]	INFO	hudson.lifecycle.Lifecycle#onReady: Jenkins is fully up and running
+jenkins-1  | 2026-09-28 18:04:38.591+0000 [id=69]	INFO	h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Maven.MavenInstaller
+jenkins-1  | 2026-09-28 18:04:38.592+0000 [id=69]	INFO	hudson.util.Retrier#start: Performed the action check updates server successfully at the attempt #1
+jenkins-1  | 2026-09-28 18:05:28.004+0000 [id=60]	INFO	o.j.p.g.webhook.WebhookManager$1#run: GitHub webhooks activated for job carparts with [GitHubRepositoryName[host=github.com,username=miguelsenai2024,repository=Jenkins-Aula-6]] (events: [PULL_REQUEST, PUSH])
+jenkins-1  | 2026-09-28 18:05:29.173+0000 [id=96]	INFO	o.j.p.g.ApiRateLimitChecker$RateLimitCheckerAdapter#checkRateLimit: LocalChecker for rate limit was not set for this thread. Configured using system settings with API URL 'https://api.github.com'.
+jenkins-1  | 2026-09-28 18:05:32.047+0000 [id=113]	INFO	o.j.p.g.ApiRateLimitChecker$RateLimitCheckerAdapter#checkRateLimit: LocalChecker for rate limit was not set for this thread. Configured using system settings with API URL 'https://api.github.com'.

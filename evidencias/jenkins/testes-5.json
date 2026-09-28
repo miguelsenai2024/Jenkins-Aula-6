@@ -1,0 +1,103 @@
+{
+  "_class": "hudson.tasks.junit.TestResult",
+  "testActions": [],
+  "duration": 0.031375,
+  "empty": false,
+  "failCount": 0,
+  "passCount": 4,
+  "skipCount": 0,
+  "suites": [
+    {
+      "cases": [
+        {
+          "testActions": [],
+          "age": 0,
+          "className": "test",
+          "duration": 0.018396,
+          "errorDetails": null,
+          "errorStackTrace": null,
+          "failedSince": 0,
+          "flakyFailures": [],
+          "name": "health confirma disponibilidade e identifica o artefato",
+          "properties": {},
+          "rerunFailures": [],
+          "skipped": false,
+          "skippedMessage": null,
+          "status": "PASSED",
+          "stderr": null,
+          "stdout": null
+        },
+        {
+          "testActions": [],
+          "age": 0,
+          "className": "test",
+          "duration": 0.004958,
+          "errorDetails": null,
+          "errorStackTrace": null,
+          "failedSince": 0,
+          "flakyFailures": [],
+          "name": "consulta de pecas retorna codigo e estoque",
+          "properties": {},
+          "rerunFailures": [],
+          "skipped": false,
+          "skippedMessage": null,
+          "status": "PASSED",
+          "stderr": null,
+          "stdout": null
+        },
+        {
+          "testActions": [],
+          "age": 0,
+          "className": "test",
+          "duration": 0.002807,
+          "errorDetails": null,
+          "errorStackTrace": null,
+          "failedSince": 0,
+          "flakyFailures": [],
+          "name": "rota inexistente retorna erro 404 em JSON",
+          "properties": {},
+          "rerunFailures": [],
+          "skipped": false,
+          "skippedMessage": null,
+          "status": "PASSED",
+          "stderr": null,
+          "stdout": null
+        },
+        {
+          "testActions": [],
+          "age": 0,
+          "className": "test",
+          "duration": 0.004417,
+          "errorDetails": null,
+          "errorStackTrace": null,
+          "failedSince": 0,
+          "flakyFailures": [],
+          "name": "metodo sem suporte nao e aceito como consulta",
+          "properties": {},
+          "rerunFailures": [],
+          "skipped": false,
+          "skippedMessage": null,
+          "status": "PASSED",
+          "stderr": null,
+          "stdout": null
+        }
+      ],
+      "duration": 0.031375,
+      "enclosingBlockNames": [
+        "Qualidade",
+        "CI"
+      ],
+      "enclosingBlocks": [
+        "19",
+        "10"
+      ],
+      "id": null,
+      "name": "Carparts_API",
+      "nodeId": "33",
+      "properties": {},
+      "stderr": null,
+      "stdout": null,
+      "timestamp": null
+    }
+  ]
+}

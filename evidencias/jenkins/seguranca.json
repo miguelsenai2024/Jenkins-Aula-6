@@ -1,0 +1,6 @@
+{
+  "_class": "hudson.model.Hudson",
+  "useSecurity": true,
+  "anonymousHttpStatus": 403,
+  "configProof": "numExecutors=0\nsecurityRealm=HudsonPrivateSecurityRealm\nauthorizationStrategy=FullControlOnceLoggedInAuthorizationStrategy\n"
+}

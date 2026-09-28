@@ -1,0 +1,148 @@
+{
+  "_class": "hudson.model.ComputerSet",
+  "busyExecutors": 0,
+  "computer": [
+    {
+      "_class": "hudson.model.Hudson$MasterComputer",
+      "actions": [],
+      "assignedLabels": [
+        {
+          "name": "built-in"
+        }
+      ],
+      "description": "the Jenkins controller's built-in node",
+      "displayName": "Built-In Node",
+      "executors": [],
+      "icon": "symbol-computer",
+      "iconClassName": "symbol-computer",
+      "idle": true,
+      "jnlpAgent": false,
+      "launchSupported": true,
+      "loadStatistics": {
+        "_class": "hudson.model.Label$1"
+      },
+      "manualLaunchAllowed": true,
+      "monitorData": {
+        "hudson.node_monitors.SwapSpaceMonitor": {
+          "_class": "hudson.node_monitors.SwapSpaceMonitor$MemoryUsage2",
+          "availablePhysicalMemory": 8727994368,
+          "availableSwapSpace": 3221221376,
+          "totalPhysicalMemory": 16765374464,
+          "totalSwapSpace": 3221221376
+        },
+        "hudson.node_monitors.TemporarySpaceMonitor": {
+          "_class": "hudson.node_monitors.DiskSpaceMonitorDescriptor$DiskSpace",
+          "timestamp": 1790618729254,
+          "path": "/tmp",
+          "size": 89396953088,
+          "threshold": 1073741824,
+          "totalSize": 154894188544,
+          "warningThreshold": 2147483648
+        },
+        "hudson.node_monitors.DiskSpaceMonitor": {
+          "_class": "hudson.node_monitors.DiskSpaceMonitorDescriptor$DiskSpace",
+          "timestamp": 1790618729252,
+          "path": "/var/jenkins_home",
+          "size": 89396953088,
+          "threshold": 1073741824,
+          "totalSize": 154894188544,
+          "warningThreshold": 2147483648
+        },
+        "hudson.node_monitors.ArchitectureMonitor": "Linux (amd64)",
+        "hudson.node_monitors.ResponseTimeMonitor": {
+          "_class": "hudson.node_monitors.ResponseTimeMonitor$Data",
+          "timestamp": 1790618729255,
+          "average": 0
+        },
+        "hudson.node_monitors.ClockMonitor": {
+          "_class": "hudson.util.ClockDifference",
+          "diff": 0
+        }
+      },
+      "numExecutors": 0,
+      "offline": false,
+      "offlineCause": null,
+      "offlineCauseReason": "",
+      "oneOffExecutors": [],
+      "temporarilyOffline": false
+    },
+    {
+      "_class": "hudson.slaves.SlaveComputer",
+      "actions": [],
+      "assignedLabels": [
+        {
+          "name": "linux-docker"
+        },
+        {
+          "name": "linux"
+        },
+        {
+          "name": "azure"
+        },
+        {
+          "name": "docker"
+        }
+      ],
+      "description": null,
+      "displayName": "linux-docker",
+      "executors": [
+        {}
+      ],
+      "icon": "symbol-computer",
+      "iconClassName": "symbol-computer",
+      "idle": true,
+      "jnlpAgent": true,
+      "launchSupported": false,
+      "loadStatistics": {
+        "_class": "hudson.model.Label$1"
+      },
+      "manualLaunchAllowed": true,
+      "monitorData": {
+        "hudson.node_monitors.SwapSpaceMonitor": {
+          "_class": "hudson.node_monitors.SwapSpaceMonitor$MemoryUsage2",
+          "availablePhysicalMemory": 8728674304,
+          "availableSwapSpace": 3221221376,
+          "totalPhysicalMemory": 16765374464,
+          "totalSwapSpace": 3221221376
+        },
+        "hudson.node_monitors.TemporarySpaceMonitor": {
+          "_class": "hudson.node_monitors.DiskSpaceMonitorDescriptor$DiskSpace",
+          "timestamp": 1790618729357,
+          "path": "/tmp",
+          "size": 89396928512,
+          "threshold": 1073741824,
+          "totalSize": 154894188544,
+          "warningThreshold": 2147483648
+        },
+        "hudson.node_monitors.DiskSpaceMonitor": {
+          "_class": "hudson.node_monitors.DiskSpaceMonitorDescriptor$DiskSpace",
+          "timestamp": 1790618729354,
+          "path": "/home/jenkins/agent",
+          "size": 89396928512,
+          "threshold": 1073741824,
+          "totalSize": 154894188544,
+          "warningThreshold": 2147483648
+        },
+        "hudson.node_monitors.ArchitectureMonitor": "Linux (amd64)",
+        "hudson.node_monitors.ResponseTimeMonitor": {
+          "_class": "hudson.node_monitors.ResponseTimeMonitor$Data",
+          "timestamp": 1790618729333,
+          "average": 78
+        },
+        "hudson.node_monitors.ClockMonitor": {
+          "_class": "hudson.util.ClockDifference",
+          "diff": -10
+        }
+      },
+      "numExecutors": 1,
+      "offline": false,
+      "offlineCause": null,
+      "offlineCauseReason": "",
+      "oneOffExecutors": [],
+      "temporarilyOffline": false,
+      "absoluteRemotePath": "/home/jenkins/agent"
+    }
+  ],
+  "displayName": "Nodes",
+  "totalExecutors": 1
+}

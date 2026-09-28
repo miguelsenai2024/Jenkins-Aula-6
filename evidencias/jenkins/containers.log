@@ -1,0 +1,4 @@
+NAME                       IMAGE                    COMMAND                  SERVICE   CREATED         STATUS         PORTS
+jenkins-aula-6-agent-1     jenkins-aula-6-agent     "/usr/local/bin/jenk…"   agent     5 minutes ago   Up 5 minutes   
+jenkins-aula-6-docker-1    docker:27-dind           "dockerd-entrypoint.…"   docker    6 minutes ago   Up 6 minutes   2375-2376/tcp
+jenkins-aula-6-jenkins-1   jenkins-aula-6-jenkins   "/usr/bin/tini -- /u…"   jenkins   6 minutes ago   Up 6 minutes   127.0.0.1:8080->8080/tcp, 50000/tcp
